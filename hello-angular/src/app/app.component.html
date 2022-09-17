@@ -1,0 +1,16 @@
+<div>
+  <select [(ngModel)]="modeSelect">
+    <option value="A">A 모드</option>
+    <option value="B">B 모드</option>
+  </select>
+  <input [(ngModel)]="myName">
+  <!-- pipe에 인자 전달방법 파이프명:인자 -->
+  <p>{{ myName | honor:modeSelect }}</p>
+</div>
+
+<h4>의존성 주입기 테스트</h4>
+<button type="button" (click)="printDebugLog()">클릭클릭</button>
+<p>======== calculator =======</p>
+<app-calculator></app-calculator>
+
+<app-mouse-track></app-mouse-track>
