@@ -8,11 +8,12 @@ import { LoggerService } from './logger-service';
   // 'root' 에다가 이 서비스 주입하는 거라 생각하면 됨
   providedIn: 'root'
 })
-export class MySpeacialLoggerService extends LoggerService{
+export class MySpeacialLoggerService extends LoggerService {
 
   // public이 디폴트 값이다.
   public logs: string[] = [];
-  // readonly라는 속성 지원. 초기화만 가능, 이후 값 할당 불가
+  // readonly라는 속성 지원. 초기화만 가능, 이후 값 할당 불가 
+  // 자바에서 private final이랑 같은 역할이라 생각하면 됨. 상숫값은 private readonly 제어자 추가 할 것
   private readonly MAX_HISTORY_CNT: number = 100;
   private readonly TIME_FORMATTER: string = "yyyy-MM-dd HH:mm:ss.SSS"
   

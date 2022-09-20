@@ -7,7 +7,7 @@ import { MySpeacialLoggerService } from './my-speacial-logger.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-angular';
+  title: string = 'hello-angular';
   myName: string = '';
   modeSelect: string = '';
   private mySpecialLoggerService: MySpeacialLoggerService;
