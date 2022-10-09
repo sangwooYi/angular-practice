@@ -12,13 +12,18 @@ import { MouseTrackComponent } from './mouse-track/mouse-track.component';
 import { LogLevel } from './log-level';
 import { LOG_LEVEL_TOKEN } from './app.tokes';
 import { AnotherLoggerService } from './another-logger.service';
+import { ChildCompComponent } from './child-comp/child-comp.component';
+import { ChildrensComponent } from './childrens/childrens.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HonorPipe,
     CalculatorComponent,
-    MouseTrackComponent
+    MouseTrackComponent,
+    ChildCompComponent,
+    ChildCompComponent,
+    ChildrensComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<div class="flex align-items-center" style="height: 30px">
+  <span style="cursor: pointer;" (click)="completeTodo()" [ngClass]="todo.isComplete ? 'complete' : ''">
+    <span>
+      {{ idx }}번
+    </span>
+    {{ todo.title }}
+  </span>
+  <button (click)="deleteTodo()">삭제</button>
+</div>

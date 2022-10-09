@@ -1,0 +1,13 @@
+<button type="button" (click)="emitEvent()">클릭!!</button>
+<p>{{ propsNum }}</p>
+
+
+<ol>
+  <!-- <ng-container> 를 사용해도 좋음 -->
+  <li *ngFor="let num of checkListNums; let idx = index">
+    {{ idx }} {{ num }}
+    <app-childrens></app-childrens>
+  </li>
+  <button (click)="checkAll()">전체 선택</button>
+  <button (click)="unCheckAll()">전체 해제</button>
+</ol>

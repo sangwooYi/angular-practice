@@ -1,0 +1,76 @@
+<div class="flex-col">
+  <h3>Todo-List</h3>
+  <p>현재 등록된 todo 갯수: 총 {{ todoList.length }}개 / 완료한 일 {{ completeNum }} 개 / 해야할 일 {{ todoList.length-completeNum }} 개</p>
+  <div class="flex align-items-center" style="height: 40px;">
+    <label for="add-todo">할 일 추가: </label>
+    <input type="text" id="add-todo" [(ngModel)]="todoVal"
+      (keyup.enter)="addTodo()"
+    >
+    <button (click)="addTodo()">추가</button>
+  </div>
+  <div *ngIf="todoList.length; else blankTodo">
+    <!-- index는 자동으로 주어지는 인덱스 변수 let idx = index 혹은 아래처럼 index as idx 형태로 갖다 쓰면 됨
+    홈페이지에는 후자로 선언되어 후자 형태로 사용 -->
+    <div *ngFor="let todo of todoList; index as idx">
+      <tp-todo-element 
+        [todo]="todo" [idx]="idx"
+        (completeList)="completeTodo()"
+        (deleteList)="deleteTodo($event)"
+        ></tp-todo-element>
+    </div>
+  </div>
+  <!-- ng-template사용해서 분기 가능 -->
+  <ng-template #blankTodo>할 일을 등록해 주세요!</ng-template>
+</div>
+
+<!-- required는 필수값 지정해주는 역할, pattern은 정규식 설정, 아래 정규식은 010-(0-9 까지 4글자)-(0-9까지 4글자) 형태로 
+정규식을 체크해 주는 형태-->
+<input type="text" is="test-input" [(ngModel)]="myData"
+#myModel="ngModel" required pattern="010-[0-9]{4}-[0-9]{4}"
+(ngModelChange)="checkValid()"> 
+<span>{{ myData }}</span>
+<label for="is-valid">유효함? : </label>
+<!-- ngModel에서 유효성 검사 valid 자동 지원, input태그.valid 로 체크 가능
+위처럼 #별칭="ngModel"로 연결 가능-->
+<span id="is-valid">{{ myModel.valid }}</span>
+<p>{{ validResult }}</p>
+<br>
+
+
+<h4>{{ title }}</h4>
+<!-- ngModel, ngForm같은 애들을 #별칭= 을 통해 별칭을 붙여 다룰 수 있음 -->
+<form (ngSubmig)="onSubmit()" (ngReset)="onReset()" #prodForm="ngForm">
+  <div class="input-group">
+    <span class="input-group" id="product-name">상품명: </span>
+    <input type="text" name="prod-name" class="form-control"
+    [(ngModel)]="product.name" required>
+  </div>  
+
+  <div class="input-group">
+    <span class="input-group" id="product-price">상품가격: </span>
+    <input type="text" name="prod-price" class="form-control"
+    [(ngModel)]="product.price" required pattern="[1-9]\d*" min="1000" max="1000000">
+    <!-- \d*는 숫자 형태가 무제한으로 들어올 수 있다는 것을 의미함 * 자체가 무한 반복을 의미-->
+  </div>
+
+  <div class="input-group">
+    <span class="input-group" id="product-qty">상품수량 : </span>
+    <input type="text" name="prod-qty" class="form-control"
+    [(ngModel)]="product.qty" required pattern="[1-9]\d*" min="1" max="200">
+  </div>
+
+  <div clss="input-group">
+    <textarea class="form-control" name="prod-desc" rows="4"
+    placeholder="상품 상세 설명" [(ngModel)]="product.desc" required minlength="5" maxlength="100"></textarea>
+  </div>
+
+  <div>
+    <!-- 폼태그에는 submit 버튼은 한개만 존재해야 한다. -->
+
+     <button type="submit" [disabled]="!prodForm.form.valid">상품 등록</button>
+     <button type="reset">초기화</button>
+
+    </div>
+</form>
+
+

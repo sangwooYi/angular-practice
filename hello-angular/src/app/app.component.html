@@ -14,3 +14,8 @@
 <app-calculator></app-calculator>
 
 <app-mouse-track></app-mouse-track>
+
+<h4>{{ testNum }}</h4>
+<app-child-comp [propsNum]="testNum" (emitClick)="addNums()"></app-child-comp>
+
+<button (click)="testClick()">테스트 클릭</button>

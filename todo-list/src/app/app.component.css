@@ -1,0 +1,41 @@
+
+.flex {
+  display: flex;
+  flex-direction: row;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.content-center {
+  justify-content: center;
+}
+.contet-start {
+  justify-content: start;
+}
+.content-end {
+  justify-content: end;
+}
+.align-items-center {
+  align-items: center;
+}
+.align-items-start {
+  align-items: flex-start;
+}
+
+.btn {
+  border-radius: 3px;
+  margin: 3px;
+}
+
+.test {
+  border-color: red;
+}
+/* 그냥 ng-valid, ng-invalid를 자동으로 붙여주기 때문에,
+built in validator 활용가능, custom도 가능하며 doc 참고. */
+.ng-valid{ 
+  border-right: 5px solid green;
+}
+.ng-invalid { 
+  border-right: 5px solid red;
+}
