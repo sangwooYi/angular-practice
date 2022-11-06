@@ -1,0 +1,7 @@
+<h4>그냥 인강 연습용</h4>
+<p>현재 이름: {{ name }}</p>
+<p>바꾸려는 이름: {{ newName }}</p>
+<!--  굳이 양방향 할거 없잖아? -->
+<input type="text" [(ngModel)]="newName">
+<button (click)="applyName(newName)">이름 변경</button>
+<button (click)="changeNameAfterTwoSecond()">원복</button>

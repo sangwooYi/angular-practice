@@ -1,0 +1,12 @@
+<p>하하하</p>
+<button [disabled]="isOnOf">하하히</button>
+<button (click)="convOnOff()">
+  <div *ngIf="isOnOf; then onTag else offTag"></div>
+    <ng-template #onTag>ON</ng-template>
+    <ng-template #offTag>OFF</ng-template>
+</button>
+<p>{{ testStr }}</p>
+<div>
+  <input type="text" #emitVal (keyup.enter)="emitToParent(emitVal.value)">
+  <button (click)="emitToParent(emitVal.value)">부모로 보냇!</button>
+</div>

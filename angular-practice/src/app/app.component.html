@@ -1,0 +1,8 @@
+<div class="main">
+  <cm-nav-bar></cm-nav-bar>
+  <router-outlet></router-outlet>
+  <cm-practice-on></cm-practice-on>
+  <!-- @Output에 설정한 변수명이 ()에 들어온다! 이부분 주의! -->
+  <cm-tst-comp (emitStr)="printEmitStr($event)" [testStr]="txtToChild"></cm-tst-comp>
+  {{ txtFromChild }}
+</div>
